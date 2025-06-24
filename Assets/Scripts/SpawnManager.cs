@@ -16,11 +16,15 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnBallRoutine());
     }
 
+    private void Update()
+    {
+        _isGameActive = _counter.IsGameActive;
+    }
+
 
 
     IEnumerator SpawnBallRoutine()
     {
-        _isGameActive = _counter.IsGameActive;
         while (_isGameActive)
         {
             Instantiate(BallPrefab, GenerateRandomSpawn(), BallPrefab.transform.rotation);
